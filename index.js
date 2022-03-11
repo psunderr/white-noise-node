@@ -18,8 +18,8 @@ function WhiteNoiseNode(audioContext) {
   return bufferSource;
 }
 
-WhiteNoiseNode.install = function() {
-  Object.defineProperty(AudioContext.prototype, "createWhiteNoise", {
+WhiteNoiseNode.install = function(audioContext) {
+  Object.defineProperty(audioContext.prototype, "createWhiteNoise", {
     value: function() {
       return new WhiteNoiseNode(this);
     },
